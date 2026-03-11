@@ -1,0 +1,6 @@
+/citation-database-system/
+*.csv
+.env
+api_keys.txt
+__pycache__/
+*.pyc
