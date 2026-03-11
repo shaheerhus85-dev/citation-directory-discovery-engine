@@ -7,7 +7,6 @@ This project collects potential business listing platforms through search APIs a
 ## Features
 
 - Automated directory discovery using search queries
-- Query rotation through editable query packs
 - Domain normalization and duplicate removal
 - Validation engine for directory detection
 - Incremental local database growth
@@ -17,30 +16,25 @@ This project collects potential business listing platforms through search APIs a
 
 ```text
 citation-directory-discovery-engine/
-├── collector.py
-├── validator.py
-├── queries.txt
-├── requirements.txt
-├── README.md
-└── .gitignore
+collector.py
+validator.py
+queries.txt
+requirements.txt
+README.md
+.gitignore
 ```
 
 ## Workflow
 
 ```text
 collector.py
-  ↓
+↓
 validator.py
-  ↓
-directories_valid.csv (local database, gitignored)
+↓
+directories_valid.csv (local database)
 ```
 
-The CSV database grows locally while avoiding duplicate domains.
-
-## Requirements
-
-- Python 3.11+
-- Tavily API key stored in `TAVILY_API_KEY` or a local `.env` file
+The CSV database grows automatically while avoiding duplicates.
 
 ## Installation
 
@@ -50,28 +44,20 @@ pip install -r requirements.txt
 
 ## Usage
 
-Run the collector:
-
 ```bash
 python collector.py
-```
-
-Then validate discovered domains:
-
-```bash
 python validator.py
 ```
 
 ## Data Safety
 
-These files are excluded from the public repository:
+The following files are intentionally excluded from the public repository:
 
 - `directories_valid.csv`
 - `directories_raw.csv`
-- `*.csv`
 - `.env`
 - `api_keys.txt`
 
 ## Disclaimer
 
-This repository ships only the discovery engine. Collected directory databases and API credentials stay local and should not be committed to GitHub.
+This repository contains only the discovery engine. The collected directory database is intentionally excluded from GitHub.
